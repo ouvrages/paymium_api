@@ -1,6 +1,8 @@
 # PaymiumApi
 
-TODO: Write a gem description
+Simple ruby client to interract with the paymium.com API
+
+Work in progress
 
 ## Installation
 
@@ -18,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+@client = Paymium::API::Client.new  host: 'https://paymium.com/api/v1', 
+                                    key: "you api token", 
+                                    secret: "your api secret"
+
+@client.get('/data/EUR/ticker')
+
+@client.get('/user')
+````
+
+## TODO
+- test merchants API
+- Dev oAuth api points
+- add delete method for orders's cancelations
 
 ## Contributing
 
