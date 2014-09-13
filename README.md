@@ -1,4 +1,4 @@
-# PaymiumApi
+# Paymium::Api
 
 Simple ruby client to interract with the [paymium.com API](https://github.com/Paymium/api-documentation)
 
