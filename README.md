@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-@client = Paymium::API::Client.new  host: 'https://paymium.com/api/v1', 
+@client = Paymium::Api::Client.new  host: 'https://paymium.com/api/v1', 
                                     key: "you api token", 
                                     secret: "your api secret"
 
