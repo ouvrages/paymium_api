@@ -1,6 +1,6 @@
 # PaymiumApi
 
-Simple ruby client to interract with the paymium.com API
+Simple ruby client to interract with the [paymium.com API](https://github.com/Paymium/api-documentation)
 
 Work in progress
 
