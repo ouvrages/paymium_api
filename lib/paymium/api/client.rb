@@ -73,37 +73,3 @@ module Paymium
   end
 end
 
-# namespace :v1 do
-#   scope '/data/:currency', controller: :data do
-#     get 'ohlcv',              to: :ohlcv
-#     get 'trades',             to: :trades
-#     get 'latest_trades',      to: :latest_trades
-#     get 'depth',              to: :depth
-#     get 'ticker',             to: :ticker
-#   end
-#
-#   scope '/bitcoin_charts/:currency', controller: :bitcoin_charts do
-#     get 'depth',              to: :depth
-#     get 'trades',             to: :trades
-#   end
-#
-#   post "sendgrid_events", controller: :sendgrid_events, action: :create
-#
-#   scope '/merchant', controller: :merchant do
-#     post  '/create_payment',                    to: :create_payment
-#     get   '/get_payment/:uuid',                 to: :get_payment
-#     get   '/get_payment_private/:uuid',         to: :get_payment_private
-#     post  '/create_payment_from_button/:uuid',  to: :create_payment_from_button
-#   end
-#
-#   resource :user, only: [:show]  do
-#     resources :addresses, only: [:index, :show, :create]
-#     resources :payments, only: [:index, :show, :create]
-#     resources :orders, only: [:index, :show, :create] do
-#       member do
-#         delete :cancel
-#       end
-#     end
-#   end
-# end
-# end
