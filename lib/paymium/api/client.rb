@@ -24,7 +24,7 @@ module Paymium
 
       def post path, params = {}, &block
         req = Net::HTTP::Post.new(uri_from_path(path))
-        req.set_form_data params unless params.empty?
+        req.body = params.to_json
         request req, &block
       end
 
