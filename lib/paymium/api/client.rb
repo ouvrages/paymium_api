@@ -23,7 +23,8 @@ module Paymium
       end
 
       def post path, params = {}, &block
-        req = Net::HTTP::Post.new(uri_from_path(path))
+        uri = uri_from_path(path)
+        req = Net::HTTP::Post.new(uri.request_uri)
         req.body = params.to_json
         request req, &block
       end
@@ -34,7 +35,9 @@ module Paymium
       def set_header_fields req
         key = @config[:key]
         nonce = (Time.now.to_f * 10**6).to_i
-        data = [nonce, req.uri.to_s, req.body].compact.join
+        uri = @host.dup
+        uri.path = req.path
+        data = [nonce, uri.to_s, req.body].compact.join
         sig = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), @config[:secret], data).strip
         req.add_field "Api-Key", key
         req.add_field "Api-Nonce", nonce
