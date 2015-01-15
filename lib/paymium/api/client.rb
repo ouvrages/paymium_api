@@ -19,7 +19,7 @@ module Paymium
       def get path, params = {}, &block
         uri       = uri_from_path(path)
         uri.query = URI.encode_www_form params unless params.empty?
-        request Net::HTTP::Get.new(uri), &block
+        request Net::HTTP::Get.new(uri.request_uri), &block
       end
 
       def post path, params = {}, &block
@@ -36,7 +36,7 @@ module Paymium
         key = @config[:key]
         nonce = (Time.now.to_f * 10**6).to_i
         uri = @host.dup
-        uri.path = req.path
+        uri.path, uri.query = req.path.split('?')
         data = [nonce, uri.to_s, req.body].compact.join
         sig = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), @config[:secret], data).strip
         req.add_field "Api-Key", key
